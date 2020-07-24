@@ -44,3 +44,12 @@ test("numbers between 20 and 100 that are not multiples of 10", () => {
   expect(convert(31)).toEqual("thirty-one");
   expect(convert(35)).toEqual("thirty-five");
 });
+
+test("numbers greater than 99 and less than 1000", () => {
+  expect(convert(101)).toEqual("one-hundred and one");
+  expect(convert(200)).toEqual("two-hundred");
+  expect(convert(449)).toEqual("four-hundred and fourty-nine");
+  expect(convert(428)).toEqual("four-hundred and twenty-eight");
+  expect(convert(220)).toEqual("two-hundred and twenty");
+  expect(convert(292)).toEqual("two-hundred and ninety-two");
+});

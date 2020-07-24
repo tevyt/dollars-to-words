@@ -7,6 +7,8 @@ function convert(numericalRepresentation) {
     return convertNumbersLessThan20(numericalRepresentation);
   } else if (numericalRepresentation < 100) {
     return convertNumbersLessThan100(numericalRepresentation);
+  } else {
+    return convertLargeNumber(numericalRepresentation);
   }
 }
 
@@ -81,6 +83,17 @@ function convertNumbersLessThan100(numericalRepresentation) {
   const remainder = numericalRepresentation % 10;
   if (remainder > 0) {
     valueInWords += `-${convertDigits(remainder)}`;
+  }
+  return valueInWords;
+}
+
+function convertLargeNumber(numericalRepresentation) {
+  let valueInWords = `${convert(
+    Math.floor(numericalRepresentation / 100)
+  )}-hundred`;
+  const remainder = numericalRepresentation % 100;
+  if (remainder > 0) {
+    valueInWords += ` and ${convert(remainder)}`;
   }
   return valueInWords;
 }
