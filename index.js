@@ -1,5 +1,7 @@
 function convert(numericalRepresentation) {
-  if (numericalRepresentation < 10) {
+  if (numericalRepresentation === 0) {
+    return "zero";
+  } else if (numericalRepresentation < 10) {
     return convertDigits(numericalRepresentation);
   } else if (numericalRepresentation < 20) {
     return convertNumbersLessThan20(numericalRepresentation);

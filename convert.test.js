@@ -1,6 +1,7 @@
 const convert = require("./index");
 
 test("integer values less than 10", () => {
+  expect(convert(0)).toEqual("zero");
   expect(convert(1)).toEqual("one");
   expect(convert(2)).toEqual("two");
   expect(convert(3)).toEqual("three");
