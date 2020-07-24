@@ -36,3 +36,11 @@ test("multiples of 10 greater than 10 and less than 100", () => {
   expect(convert(80)).toEqual("eighty");
   expect(convert(90)).toEqual("ninety");
 });
+
+test("numbers between 20 and 100 that are not multiples of 10", () => {
+  expect(convert(73)).toEqual("seventy-three");
+  expect(convert(54)).toEqual("fifty-four");
+  expect(convert(87)).toEqual("eighty-seven");
+  expect(convert(31)).toEqual("thirty-one");
+  expect(convert(35)).toEqual("thirty-five");
+});

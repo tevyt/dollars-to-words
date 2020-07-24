@@ -60,31 +60,27 @@ function convertNumbersLessThan20(numericalRepresentation) {
 
 function convertNumbersLessThan100(numericalRepresentation) {
   let valueInWords = "";
-  switch (numericalRepresentation) {
-    case 20:
-      valueInWords = "twenty";
-      break;
-    case 30:
-      valueInWords = "thirty";
-      break;
-    case 40:
-      valueInWords = "fourty";
-      break;
-    case 50:
-      valueInWords = "fifty";
-      break;
-    case 60:
-      valueInWords = "sixty";
-      break;
-    case 70:
-      valueInWords = "seventy";
-      break;
-    case 80:
-      valueInWords = "eighty";
-      break;
-    case 90:
-      valueInWords = "ninety";
-      break;
+  if (numericalRepresentation < 30) {
+    valueInWords = "twenty";
+  } else if (numericalRepresentation < 40) {
+    valueInWords = "thirty";
+  } else if (numericalRepresentation < 50) {
+    valueInWords = "fourty";
+  } else if (numericalRepresentation < 60) {
+    valueInWords = "fifty";
+  } else if (numericalRepresentation < 70) {
+    valueInWords = "sixty";
+  } else if (numericalRepresentation < 80) {
+    valueInWords = "seventy";
+  } else if (numericalRepresentation < 90) {
+    valueInWords = "eighty";
+  } else {
+    valueInWords = "ninety";
+  }
+
+  const remainder = numericalRepresentation % 10;
+  if (remainder > 0) {
+    valueInWords += `-${convertDigits(remainder)}`;
   }
   return valueInWords;
 }
