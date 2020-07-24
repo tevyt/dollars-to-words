@@ -13,7 +13,7 @@ test("integer values less than 10", () => {
   expect(convert(9)).toEqual("nine");
 });
 
-test("integer values greater than 9 and less than 20", () => {
+test("integer values greater than 11 and less than 20", () => {
   expect(convert(10)).toEqual("ten");
   expect(convert(11)).toEqual("eleven");
   expect(convert(12)).toEqual("twelve");
@@ -24,4 +24,15 @@ test("integer values greater than 9 and less than 20", () => {
   expect(convert(17)).toEqual("seventeen");
   expect(convert(18)).toEqual("eighteen");
   expect(convert(19)).toEqual("nineteen");
+});
+
+test("multiples of 10 greater than 10 and less than 100", () => {
+  expect(convert(20)).toEqual("twenty");
+  expect(convert(30)).toEqual("thirty");
+  expect(convert(40)).toEqual("fourty");
+  expect(convert(50)).toEqual("fifty");
+  expect(convert(60)).toEqual("sixty");
+  expect(convert(70)).toEqual("seventy");
+  expect(convert(80)).toEqual("eighty");
+  expect(convert(90)).toEqual("ninety");
 });
