@@ -1,0 +1,20 @@
+{
+  "name": "numerical-dollars-to-words",
+  "version": "1.0.0",
+  "description": "Converts currency value represented numerically to a words.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "currency",
+    "convert",
+    "words"
+  ],
+  "author": "Travis Smith",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "jest": "^26.1.0"
+  }
+}
