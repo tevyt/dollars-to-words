@@ -40,16 +40,30 @@ test("multiples of 10 greater than 10 and less than 100", () => {
 test("numbers between 20 and 100 that are not multiples of 10", () => {
   expect(convert(73)).toEqual("seventy-three");
   expect(convert(54)).toEqual("fifty-four");
-  expect(convert(87)).toEqual("eighty-seven");
+  expect(convert(86)).toEqual("eighty-six");
   expect(convert(31)).toEqual("thirty-one");
   expect(convert(35)).toEqual("thirty-five");
 });
 
 test("numbers greater than 99 and less than 1000", () => {
-  expect(convert(101)).toEqual("one-hundred and one");
-  expect(convert(200)).toEqual("two-hundred");
-  expect(convert(449)).toEqual("four-hundred and fourty-nine");
-  expect(convert(428)).toEqual("four-hundred and twenty-eight");
-  expect(convert(220)).toEqual("two-hundred and twenty");
-  expect(convert(292)).toEqual("two-hundred and ninety-two");
+  expect(convert(101)).toEqual("one hundred and one");
+  expect(convert(200)).toEqual("two hundred");
+  expect(convert(449)).toEqual("four hundred and fourty-nine");
+  expect(convert(428)).toEqual("four hundred and twenty-eight");
+  expect(convert(220)).toEqual("two hundred and twenty");
+  expect(convert(292)).toEqual("two hundred and ninety-two");
+});
+
+test("numbers >= 1000 and <= 999,999", () => {
+  expect(convert(1000)).toEqual("one thousand");
+  expect(convert(5000)).toEqual("five thousand");
+  expect(convert(180087)).toEqual(
+    "one hundred and eighty thousand and eighty-seven"
+  );
+  expect(convert(54373)).toEqual(
+    "fifty-four thousand, three hundred and seventy-three"
+  );
+  expect(convert(10000)).toEqual("ten thousand");
+  expect(convert(100001)).toEqual("one hundred thousand and one");
+  expect(convert(15300)).toEqual("fifteen thousand, three hundred");
 });

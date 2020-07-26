@@ -1,3 +1,11 @@
+const HUNDRED = "hundred";
+const THOUSAND = "thousand";
+
+const suffix = {
+  [HUNDRED]: 100,
+  [THOUSAND]: 1000,
+};
+
 function convert(numericalRepresentation) {
   if (numericalRepresentation === 0) {
     return "zero";
@@ -8,7 +16,8 @@ function convert(numericalRepresentation) {
   } else if (numericalRepresentation < 100) {
     return convertNumbersLessThan100(numericalRepresentation);
   } else {
-    return convertLargeNumber(numericalRepresentation);
+    const scale = numericalRepresentation < 1000 ? HUNDRED : THOUSAND;
+    return convertLargeNumber(numericalRepresentation, scale);
   }
 }
 
@@ -87,13 +96,17 @@ function convertNumbersLessThan100(numericalRepresentation) {
   return valueInWords;
 }
 
-function convertLargeNumber(numericalRepresentation) {
+function convertLargeNumber(numericalRepresentation, scale) {
   let valueInWords = `${convert(
-    Math.floor(numericalRepresentation / 100)
-  )}-hundred`;
-  const remainder = numericalRepresentation % 100;
+    Math.floor(numericalRepresentation / suffix[scale])
+  )} ${scale}`;
+  const remainder = numericalRepresentation % suffix[scale];
   if (remainder > 0) {
-    valueInWords += ` and ${convert(remainder)}`;
+    if (remainder < 100) {
+      valueInWords += ` and ${convert(remainder)}`;
+    } else {
+      valueInWords += `, ${convert(remainder)}`;
+    }
   }
   return valueInWords;
 }
