@@ -137,6 +137,7 @@ test("values with cents", () => {
   expect(convert(2020.666)).toEqual(
     "two thousand and twenty dollars and sixty-six cents"
   );
+  expect(convert(102.1)).toEqual("one hundred and two dollars and ten cents");
 });
 
 test("string input", () => {

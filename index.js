@@ -14,10 +14,15 @@ function convert(numericalRepresentation) {
     dollarPart = numericalRepresentation;
   } else {
     const numberAsString = numericalRepresentation.toString();
-    const [dollarString, centString] = numberAsString.split(".");
+    let [dollarString, centString] = numberAsString.split(".");
 
     dollarPart = Number.parseInt(dollarString);
-    centPart = getTwoMostSignificantDigits(Number.parseInt(centString));
+
+    centString =
+      centString.length > 1
+        ? `${centString[0]}${centString[1]}`
+        : `${centString}0`;
+    centPart = Number.parseInt(centString);
   }
 
   return `${convertIntegerValue(dollarPart)} dollars and ${convertIntegerValue(
