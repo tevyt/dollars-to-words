@@ -19,6 +19,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/smithtal/numerical-dollars-to-words.git"
+    "url": "https://github.com/smithtal/dollars-to-words.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   }
 }
