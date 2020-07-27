@@ -139,8 +139,15 @@ test("values with cents", () => {
   );
 });
 
+test("string input", () => {
+  expect(convert("21")).toEqual("twenty-one dollars and zero cents");
+});
+
 describe("error handling", () => {
   test("negative numbers are not allowed", () => {
     expect(() => convert(-1000.98)).toThrowError(/negative value/);
+  });
+  test("input must be a valid number", () => {
+    expect(() => convert("abc")).toThrowError(/valid number/);
   });
 });

@@ -1,4 +1,8 @@
 function convert(numericalRepresentation) {
+  numericalRepresentation = Number.parseFloat(numericalRepresentation);
+  if (Number.isNaN(numericalRepresentation)) {
+    throw new Error("Input must be a valid number.");
+  }
   if (numericalRepresentation < 0) {
     throw new Error("Cannot convert negative value.");
   }
