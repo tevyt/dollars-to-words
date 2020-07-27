@@ -128,4 +128,13 @@ describe("integer values (n)", () => {
       "eight quadrillion, two hundred and thirty trillion, one hundred and twenty-four billion, five hundred and sixty-seven million, ninety thousand, two hundred and three dollars and zero cents"
     );
   });
+
+  test("values with cents", () => {
+    expect(convert(175.54)).toEqual(
+      "one hundred and seventy-five dollars and fifty-four cents"
+    );
+    expect(convert(2020.666)).toEqual(
+      "two thousand and twenty dollars and sixty-six cents"
+    );
+  });
 });

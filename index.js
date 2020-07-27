@@ -1,10 +1,28 @@
 function convert(numericalRepresentation) {
-  const dollarPart = Math.floor(numericalRepresentation);
-  const centPart = numericalRepresentation % 1;
+  let dollarPart = 0;
+  let centPart = 0;
+
+  if (Number.isInteger(numericalRepresentation)) {
+    dollarPart = numericalRepresentation;
+  } else {
+    const numberAsString = numericalRepresentation.toString();
+    const [dollarString, centString] = numberAsString.split(".");
+
+    dollarPart = Number.parseInt(dollarString);
+    centPart = getTwoMostSignificantDigits(Number.parseInt(centString));
+  }
 
   return `${convertIntegerValue(dollarPart)} dollars and ${convertIntegerValue(
     centPart
   )} cents`;
+}
+
+//Only the two most significant digits for cents i.e. 0.764 => seventy-six cents, not seven hundred and sixty-four cents.
+function getTwoMostSignificantDigits(number) {
+  while (number >= 100) {
+    number = Math.floor(number / 10);
+  }
+  return number;
 }
 
 function convertIntegerValue(numericalRepresentation) {
