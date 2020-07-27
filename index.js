@@ -1,18 +1,29 @@
 function convert(numericalRepresentation) {
+  const dollarPart = Math.floor(numericalRepresentation);
+  const centPart = numericalRepresentation % 1;
+
+  return `${convertIntegerValue(dollarPart)} dollars and ${convertIntegerValue(
+    centPart
+  )} cents`;
+}
+
+function convertIntegerValue(numericalRepresentation) {
   if (numericalRepresentation === 0) {
     return "zero";
   } else if (numericalRepresentation < 10) {
-    return convertDigits(numericalRepresentation);
+    return convertIntegerValueLessThan10(numericalRepresentation);
   } else if (numericalRepresentation < 20) {
-    return convertNumbersLessThan20(numericalRepresentation);
+    return convertIntegerValueLessThan20(numericalRepresentation);
   } else if (numericalRepresentation < 100) {
-    return convertNumbersLessThan100(numericalRepresentation);
+    return convertIntegerValueGreaterThan20AndLessThan100(
+      numericalRepresentation
+    );
   } else {
-    return convertLargeNumber(numericalRepresentation);
+    return convertValue100AndOver(numericalRepresentation);
   }
 }
 
-function convertDigits(digit) {
+function convertIntegerValueLessThan10(digit) {
   switch (digit) {
     case 1:
       return "one";
@@ -35,7 +46,7 @@ function convertDigits(digit) {
   }
 }
 
-function convertNumbersLessThan20(numericalRepresentation) {
+function convertIntegerValueLessThan20(numericalRepresentation) {
   switch (numericalRepresentation) {
     case 10:
       return "ten";
@@ -60,7 +71,9 @@ function convertNumbersLessThan20(numericalRepresentation) {
   }
 }
 
-function convertNumbersLessThan100(numericalRepresentation) {
+function convertIntegerValueGreaterThan20AndLessThan100(
+  numericalRepresentation
+) {
   let valueInWords = "";
   if (numericalRepresentation < 30) {
     valueInWords = "twenty";
@@ -82,12 +95,12 @@ function convertNumbersLessThan100(numericalRepresentation) {
 
   const remainder = numericalRepresentation % 10;
   if (remainder > 0) {
-    valueInWords += `-${convertDigits(remainder)}`;
+    valueInWords += `-${convertIntegerValueLessThan10(remainder)}`;
   }
   return valueInWords;
 }
 
-function convertLargeNumber(numericalRepresentation) {
+function convertValue100AndOver(numericalRepresentation) {
   const HUNDRED = "hundred";
   const THOUSAND = "thousand";
   const MILLION = "million";
@@ -126,15 +139,15 @@ function convertLargeNumber(numericalRepresentation) {
     scale = QUADRILLION;
   }
 
-  let valueInWords = `${convert(
+  let valueInWords = `${convertIntegerValue(
     Math.floor(numericalRepresentation / suffix[scale])
   )} ${scale}`;
   const remainder = numericalRepresentation % suffix[scale];
   if (remainder > 0) {
     if (remainder < 100) {
-      valueInWords += ` and ${convert(remainder)}`;
+      valueInWords += ` and ${convertIntegerValue(remainder)}`;
     } else {
-      valueInWords += `, ${convert(remainder)}`;
+      valueInWords += `, ${convertIntegerValue(remainder)}`;
     }
   }
   return valueInWords;
