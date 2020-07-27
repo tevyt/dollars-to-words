@@ -30,14 +30,6 @@ function convert(numericalRepresentation) {
   )} cents`;
 }
 
-//Only the two most significant digits for cents i.e. 0.764 => seventy-six cents, not seven hundred and sixty-four cents.
-function getTwoMostSignificantDigits(number) {
-  while (number >= 100) {
-    number = Math.floor(number / 10);
-  }
-  return number;
-}
-
 function convertIntegerValue(numericalRepresentation) {
   if (numericalRepresentation === 0) {
     return "zero";
