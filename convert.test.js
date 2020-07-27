@@ -102,10 +102,16 @@ describe("integer values (n)", () => {
     );
   });
 
-  test("999,999,999,999 <= n <= 999,999,999,999,999 (trillion)", () => {
+  test("999,999,999,999 < n <= 999,999,999,999,999 (trillion)", () => {
     expect(convert(6000000000000)).toEqual("six trillion");
     expect(convert(6020001004303)).toEqual(
       "six trillion, twenty billion, one million, four thousand, three hundred and three"
+    );
+  });
+
+  test(`999,999,999,999,999 < n <= ${Number.MAX_SAFE_INTEGER} (quadrillion)`, () => {
+    expect(convert(8230124567090203)).toEqual(
+      "eight quadrillion, two hundred and thirty trillion, one hundred and twenty-four billion, five hundred and sixty-seven million, ninety thousand, two hundred and three"
     );
   });
 });

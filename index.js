@@ -93,12 +93,14 @@ function convertLargeNumber(numericalRepresentation) {
   const MILLION = "million";
   const BILLION = "billion";
   const TRILLION = "trillion";
+  const QUADRILLION = "quadrillion";
 
   const ONE_HUNDRED = 100;
   const ONE_THOUSAND = 1000;
   const ONE_MILLION = 1000000;
   const ONE_BILLION = 1000000000;
   const ONE_TRILLION = 1000000000000;
+  const ONE_QUADRILLION = 1000000000000000;
 
   const suffix = {
     [HUNDRED]: ONE_HUNDRED,
@@ -106,6 +108,7 @@ function convertLargeNumber(numericalRepresentation) {
     [MILLION]: ONE_MILLION,
     [BILLION]: ONE_BILLION,
     [TRILLION]: ONE_TRILLION,
+    [QUADRILLION]: ONE_QUADRILLION,
   };
 
   let scale;
@@ -117,8 +120,10 @@ function convertLargeNumber(numericalRepresentation) {
     scale = MILLION;
   } else if (numericalRepresentation < ONE_TRILLION) {
     scale = BILLION;
-  } else {
+  } else if (numericalRepresentation < ONE_QUADRILLION) {
     scale = TRILLION;
+  } else {
+    scale = QUADRILLION;
   }
 
   let valueInWords = `${convert(
