@@ -12,7 +12,7 @@
     "words"
   ],
   "author": "Travis Smith <travis.a.smith.ja@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {},
   "devDependencies": {
     "jest": "^26.1.0"
