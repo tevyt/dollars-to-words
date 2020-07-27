@@ -101,4 +101,11 @@ describe("integer values (n)", () => {
       "eighty-six billion, three hundred million"
     );
   });
+
+  test("999,999,999,999 <= n <= 999,999,999,999,999 (trillion)", () => {
+    expect(convert(6000000000000)).toEqual("six trillion");
+    expect(convert(6020001004303)).toEqual(
+      "six trillion, twenty billion, one million, four thousand, three hundred and three"
+    );
+  });
 });

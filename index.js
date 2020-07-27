@@ -92,17 +92,20 @@ function convertLargeNumber(numericalRepresentation) {
   const THOUSAND = "thousand";
   const MILLION = "million";
   const BILLION = "billion";
+  const TRILLION = "trillion";
 
   const ONE_HUNDRED = 100;
   const ONE_THOUSAND = 1000;
   const ONE_MILLION = 1000000;
   const ONE_BILLION = 1000000000;
+  const ONE_TRILLION = 1000000000000;
 
   const suffix = {
     [HUNDRED]: ONE_HUNDRED,
     [THOUSAND]: ONE_THOUSAND,
     [MILLION]: ONE_MILLION,
     [BILLION]: ONE_BILLION,
+    [TRILLION]: ONE_TRILLION,
   };
 
   let scale;
@@ -112,8 +115,10 @@ function convertLargeNumber(numericalRepresentation) {
     scale = THOUSAND;
   } else if (numericalRepresentation < ONE_BILLION) {
     scale = MILLION;
-  } else {
+  } else if (numericalRepresentation < ONE_TRILLION) {
     scale = BILLION;
+  } else {
+    scale = TRILLION;
   }
 
   let valueInWords = `${convert(
