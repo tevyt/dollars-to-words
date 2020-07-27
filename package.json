@@ -1,6 +1,6 @@
 {
   "name": "dollars-to-words",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Converts currency value represented numerically to a words.",
   "main": "index.js",
   "scripts": {
