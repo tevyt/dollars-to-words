@@ -1,5 +1,5 @@
 {
-  "name": "numerical-dollars-to-words",
+  "name": "dollars-to-words",
   "version": "1.0.0",
   "description": "Converts currency value represented numerically to a words.",
   "main": "index.js",
@@ -11,10 +11,14 @@
     "convert",
     "words"
   ],
-  "author": "Travis Smith",
+  "author": "Travis Smith <travis.a.smith.ja@gmail.com>",
   "license": "ISC",
   "dependencies": {},
   "devDependencies": {
     "jest": "^26.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/smithtal/numerical-dollars-to-words.git"
   }
 }
