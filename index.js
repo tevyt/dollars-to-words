@@ -1,4 +1,8 @@
 function convert(numericalRepresentation) {
+  if (numericalRepresentation < 0) {
+    throw new Error("Cannot convert negative value.");
+  }
+
   let dollarPart = 0;
   let centPart = 0;
 
