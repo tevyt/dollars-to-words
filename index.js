@@ -1,11 +1,3 @@
-const HUNDRED = "hundred";
-const THOUSAND = "thousand";
-
-const suffix = {
-  [HUNDRED]: 100,
-  [THOUSAND]: 1000,
-};
-
 function convert(numericalRepresentation) {
   if (numericalRepresentation === 0) {
     return "zero";
@@ -16,8 +8,7 @@ function convert(numericalRepresentation) {
   } else if (numericalRepresentation < 100) {
     return convertNumbersLessThan100(numericalRepresentation);
   } else {
-    const scale = numericalRepresentation < 1000 ? HUNDRED : THOUSAND;
-    return convertLargeNumber(numericalRepresentation, scale);
+    return convertLargeNumber(numericalRepresentation);
   }
 }
 
@@ -96,7 +87,35 @@ function convertNumbersLessThan100(numericalRepresentation) {
   return valueInWords;
 }
 
-function convertLargeNumber(numericalRepresentation, scale) {
+function convertLargeNumber(numericalRepresentation) {
+  const HUNDRED = "hundred";
+  const THOUSAND = "thousand";
+  const MILLION = "million";
+  const BILLION = "billion";
+
+  const ONE_HUNDRED = 100;
+  const ONE_THOUSAND = 1000;
+  const ONE_MILLION = 1000000;
+  const ONE_BILLION = 1000000000;
+
+  const suffix = {
+    [HUNDRED]: ONE_HUNDRED,
+    [THOUSAND]: ONE_THOUSAND,
+    [MILLION]: ONE_MILLION,
+    [BILLION]: ONE_BILLION,
+  };
+
+  let scale;
+  if (numericalRepresentation < ONE_THOUSAND) {
+    scale = HUNDRED;
+  } else if (numericalRepresentation < ONE_MILLION) {
+    scale = THOUSAND;
+  } else if (numericalRepresentation < ONE_BILLION) {
+    scale = MILLION;
+  } else {
+    scale = BILLION;
+  }
+
   let valueInWords = `${convert(
     Math.floor(numericalRepresentation / suffix[scale])
   )} ${scale}`;
