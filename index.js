@@ -25,9 +25,9 @@ function convert(numericalRepresentation) {
     centPart = Number.parseInt(centString);
   }
 
-  return `${convertIntegerValue(dollarPart)} dollars and ${convertIntegerValue(
+  return `${convertIntegerValue(dollarPart)} dollar${dollarPart === 1 ? "" : "s"} and ${convertIntegerValue(
     centPart
-  )} cents`;
+  )} cent${centPart === 1 ? "" : "s"}`;
 }
 
 function convertIntegerValue(numericalRepresentation) {
