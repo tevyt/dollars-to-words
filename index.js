@@ -103,7 +103,7 @@ function convertIntegerValueGreaterThan20AndLessThan100(
   } else if (numericalRepresentation < 40) {
     valueInWords = "thirty";
   } else if (numericalRepresentation < 50) {
-    valueInWords = "fourty";
+    valueInWords = "forty";
   } else if (numericalRepresentation < 60) {
     valueInWords = "fifty";
   } else if (numericalRepresentation < 70) {
