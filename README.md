@@ -1,5 +1,5 @@
 # dollars-to-words
-
+*THIS PROJECT IS NOT BEING ACTIVELY MAINTAINED* consider [to-words](https://github.com/mastermunj/to-words) as an alternative.
 A Javascript library for dollar values represented as numbers to words.
 
 Example `175.75 => one hundred and seventy-five dollars and seventy-five cents`.
